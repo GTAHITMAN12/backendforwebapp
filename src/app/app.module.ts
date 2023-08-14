@@ -6,19 +6,21 @@ import { AppComponent } from './app.component';
 import { OrderComponent } from './order/order.component';
 import { StoreComponent } from './store/store.component';
 import { DashbroadComponent } from './dashbroad/dashbroad.component';
-import { LoginComponent } from './login/login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     OrderComponent,
     StoreComponent,
-    DashbroadComponent,
-    LoginComponent
+    DashbroadComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

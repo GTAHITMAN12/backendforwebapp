@@ -1,1 +1,57 @@
-<p>store works!</p>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<h1 class="rounded">item Form</h1>
+<form [formGroup]="itemForm">
+    <div *ngIf="!isitemAdded">
+        <div class="field">
+        <label> name : </label>
+        <input  formControlName="name">
+        </div>
+        <div class="field">
+        <label> price : </label>
+        <input formControlName="price">
+        </div>
+        <div class="field">
+        <label> target_sale : </label>
+        <input  formControlName="target_sale">
+        </div>
+        <div class="field">
+        <label> description : </label>
+        <input  formControlName="description">
+        </div>
+        <div class="field">
+        <label> stock : </label>
+        <input  formControlName="stock">
+        </div>
+    </div>
+    <div *ngIf="!isitemAdded">
+      <button class="button is-success" [disabled]="itemForm.invalid" type="button" (click)="additem()">Add item</button>
+    </div>
+    <div *ngIf="edititems">
+        <button class="button is-success" type="submit" (click)="updateAitem()">Update this item</button>
+      </div>
+    <div *ngIf="isitemAdded">
+        <h3>New item added...</h3>
+        <button class="button is-success" (click)="this.newitemAdded()"> + Add more item</button>
+    </div>
+</form>
+<table class="table">
+    <thead>
+      <tr>
+        <th>#</th><th>Name</th><th>price</th><th>target_sale</th><th>description</th><th>stock</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let f of items">
+            <td>{{ f.id  }} </td>
+            <td><b>{{ f.name}} </b></td>
+            <td>{{ f.price }} </td>
+            <td>{{ f.target_sale }} </td>
+            <td>{{ f.description}} </td>
+            <td>{{ f.stock}} </td>
+            <td><button type="button" class="button is-danger" (click)="updateitemClick(f.id)">Edit</button>
+                <button class="button is-warning" (click)="deleteitem(f.id)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
