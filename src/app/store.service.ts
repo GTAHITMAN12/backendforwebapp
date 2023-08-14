@@ -35,7 +35,7 @@ export class StoreService {
 
   getItem(): Observable<Data[]>{
     return this.http.get<Data[]>
-    ('http://localhost:3000/store')
+    ('http://localhost:3000/sales')
     .pipe(tap(items => {
       console.log('item fetched...');
       console.log(items); })
