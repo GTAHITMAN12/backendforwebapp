@@ -46,8 +46,8 @@
         <tr *ngFor="let f of items">
             <td>{{ f.id  }} </td>
             <td><b>{{ f.name}} </b></td>
-            <td>{{ f.price }} </td>
-            <td>{{ f.target_sale }} </td>
+            <td>{{ f.price | currency:'THB'}} </td>
+            <td>{{ f.target_sale| currency:'THB' }} </td>
             <td>{{ f.description}} </td>
             <td>{{ f.stock}} </td>
             <td><button type="button" class="button is-danger" (click)="updateitemClick(f.id)">Edit</button>
